@@ -1,14 +1,24 @@
-let gpsLocation = {
-  lat: 35.7271689,
-  long: -83.6381007
+// Check for a saved location
+let gpsLocation;
+if(localStorage.getItem('location') === null) {
+  // No saved location, set default
+  gpsLocation = {
+    lat: 35.705847,
+    long: -83.525229
+  };
+} else {
+  gpsLocation = JSON.parse(localStorage.getItem('location'));
 }
+
+const form = document.querySelector('#location-form');
+const locationInput = document.querySelector('#location-input');
 
 // Insert keys and remove comments
 // const darkSkyKey = '';
 // const mapboxKey = '';
 
 // Get user location or use default
-async function getLocation() {
+async function getGpsLocation() {
   return new Promise(
     (resolve, reject) => {
       if ("geolocation" in navigator) {
@@ -36,9 +46,20 @@ async function getLocation() {
     }
   );
 }
-
-async function getLocationName(loc) {
-  let url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + loc.long + ',' + loc.lat + '.json?access_token=' + mapboxKey
+let locationData;
+async function getLocationData(loc) {
+  locationData = loc;
+  let url;
+  // If loc is a string we need to lookup data with the string
+  // If loc is an object we have gps location
+  if (typeof loc === 'string') {
+    url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + loc + '.json?&access_token=' + mapboxKey;
+  } else if (typeof loc === 'object') {
+    url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + loc.long + ',' + loc.lat + '.json?access_token=' + mapboxKey;
+  } else {
+    return false;
+  }
+  
   const response = await fetch(url, {});
   return new Promise(
     (resolve, reject) => {
@@ -218,25 +239,92 @@ function setIcon(cond) {
   }
 }
 
+async function searchForLocation(loc) {
+  try {
+    // add a button to enable gps location or search
+    // pass location to api & get back gps coords
+    // get weather for new location
+    // update DOM with new weather data
+  } catch (error) {
+    // Let user know we couldn't find location
+    console.log(error.message);
+  }
+};
+
+async function loadData() {
+  try {
+    let loc = await getLocationData(gpsLocation);
+    let weath = await getWeather(gpsLocation);
+    updateCurrent(weath, loc);
+    updateForecast(weath);
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
 async function getData() {
   try {
-    let coords = await getLocation();
-    let locName = await getLocationName(coords);
+    let coords = await getGpsLocation();
+    let locData = await getLocationData(coords);
     let weath = await getWeather(coords);
 
-    updateCurrent(weath, locName);
+    updateCurrent(weath, locData);
     updateForecast(weath);
+    console.log('locData= ' + locationData);
+    
+    // ---WorkFlow Layout--- //
+    // ---X--- check for saved location 
+      // ---X--- if saved location use that
+      // ---X--- else use default location
+    // get initial weather and display it
+    // try to get gps location
+      // if not be done
+      // if we get location save to local storage and continue
+
+    // ---Alternate Entry Point--- //
+    // user searches for location
+      // save gps to local storage
+    
+    // gather data from mapbox
+    // get weather data from Dark Sky
+    // update DOM with weather data
+
+
   } catch (error) {
     console.log(error.message);
   }
 };
 
+function userInputLocation(e) {
+  if(locationInput.value === '') {
+    alert('Add a task');
+  }
+  // Trim extra spaces
+  let searchString = locationInput.value.trim();
+  // Replace spaces with '%20' required for mapbox api
+  searchString = locationInput.value.replace(/ /gi, "%20");
+  // Remove any characters that shouldn't be passed to api
+  searchString = searchString.replace(/[,.]/gi, "");
+  // Clear input
+  locationInput.value = '';
+
+  // Kick off location search
+  searchForLocation(searchString);
+
+  e.preventDefault();
+}
+
 (async () => {
+  await loadData();
   await getData();
 })();
 
+// Listen for the form to be updated
+form.addEventListener('submit', userInputLocation);
+
 // Enable collapsable boxes
 document.addEventListener('DOMContentLoaded', function () {
-  var elems = document.querySelectorAll('.collapsible');
-  var instances = M.Collapsible.init(elems, {});
+  // var elems = document.querySelectorAll('.collapsible');
+  // var instances = M.Collapsible.init(elems, {});
+  M.AutoInit();
 });

@@ -295,10 +295,11 @@ async function getData() {
   }
 };
 
-function userInputLocation(e) {
+async function userInputLocation(e) {
   if(locationInput.value === '') {
     alert('Add a task');
   }
+  e.preventDefault();
   // Trim extra spaces
   let searchString = locationInput.value.trim();
   // Replace spaces with '%20' required for mapbox api
@@ -309,9 +310,9 @@ function userInputLocation(e) {
   locationInput.value = '';
 
   // Kick off location search
-  searchForLocation(searchString);
-
-  e.preventDefault();
+  let loc = await getLocationData(searchString);
+  // Got gps need to split the string at the comma and set to gpsLocation object
+  console.log('loc = ' + loc.features[0].center);
 }
 
 (async () => {

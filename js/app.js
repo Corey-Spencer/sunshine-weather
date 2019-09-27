@@ -101,8 +101,6 @@ function updateCurrent(conditions, location) {
 }
 
 function updateForecast(conditions) {
-  console.log('getting forecast')
-
   let days = conditions.daily.data;
   for (var i = 0; i < days.length; i++) {
     let day = days[i];

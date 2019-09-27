@@ -17,7 +17,6 @@ const locationInput = document.querySelector('#location-input');
 // const darkSkyKey = '';
 // const mapboxKey = '';
 
-// Get user location or use default
 async function getGpsLocation() {
   return new Promise(
     (resolve, reject) => {
@@ -50,8 +49,6 @@ let locationData;
 async function getLocationData(loc) {
   locationData = loc;
   let url;
-  // If loc is a string we need to lookup data with the string
-  // If loc is an object we have gps location
   if (typeof loc === 'string') {
     url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + loc + '.json?&access_token=' + mapboxKey;
   } else if (typeof loc === 'object') {
@@ -239,18 +236,6 @@ function setIcon(cond) {
   }
 }
 
-async function searchForLocation(loc) {
-  try {
-    // add a button to enable gps location or search
-    // pass location to api & get back gps coords
-    // get weather for new location
-    // update DOM with new weather data
-  } catch (error) {
-    // Let user know we couldn't find location
-    console.log(error.message);
-  }
-};
-
 async function loadData() {
   try {
     let loc = await getLocationData(gpsLocation);
@@ -274,26 +259,6 @@ async function getData(locData, coords) {
 
     updateCurrent(weath, locData);
     updateForecast(weath);
-    console.log('locData= ' + locationData);
-    
-    // ---WorkFlow Layout--- //
-    // ---X--- check for saved location 
-      // ---X--- if saved location use that
-      // ---X--- else use default location
-    // ---X--- get initial weather and display it
-    // ---X--- try to get gps location
-      // ---X--- if not be done
-      // if we get location save to local storage and continue
-
-    // ---Alternate Entry Point--- //
-    // ---X--- user searches for location
-      // save gps to local storage
-    
-    // ---X--- gather data from mapbox
-    // ---X--- get weather data from Dark Sky
-    // ---X--- update DOM with weather data
-
-
   } catch (error) {
     console.log(error.message);
   }
@@ -334,7 +299,5 @@ form.addEventListener('submit', userInputLocation);
 
 // Enable collapsable boxes
 document.addEventListener('DOMContentLoaded', function () {
-  // var elems = document.querySelectorAll('.collapsible');
-  // var instances = M.Collapsible.init(elems, {});
   M.AutoInit();
 });

@@ -262,10 +262,14 @@ async function loadData() {
   }
 }
 
-async function getData() {
+async function getData(locData, coords) {
   try {
-    let coords = await getGpsLocation();
-    let locData = await getLocationData(coords);
+    if (!coords) {
+      coords = await getGpsLocation();
+    }
+    if (!locData) {
+      locData = await getLocationData(coords);
+    }
     let weath = await getWeather(coords);
 
     updateCurrent(weath, locData);
@@ -276,18 +280,18 @@ async function getData() {
     // ---X--- check for saved location 
       // ---X--- if saved location use that
       // ---X--- else use default location
-    // get initial weather and display it
-    // try to get gps location
-      // if not be done
+    // ---X--- get initial weather and display it
+    // ---X--- try to get gps location
+      // ---X--- if not be done
       // if we get location save to local storage and continue
 
     // ---Alternate Entry Point--- //
-    // user searches for location
+    // ---X--- user searches for location
       // save gps to local storage
     
-    // gather data from mapbox
-    // get weather data from Dark Sky
-    // update DOM with weather data
+    // ---X--- gather data from mapbox
+    // ---X--- get weather data from Dark Sky
+    // ---X--- update DOM with weather data
 
 
   } catch (error) {
@@ -311,8 +315,13 @@ async function userInputLocation(e) {
 
   // Kick off location search
   let loc = await getLocationData(searchString);
-  // Got gps need to split the string at the comma and set to gpsLocation object
-  console.log('loc = ' + loc.features[0].center);
+
+  gpsLocation = {
+    lat: loc.features[0].center[1],
+    long: loc.features[0].center[0]
+  };
+
+  getData(loc, gpsLocation);
 }
 
 (async () => {

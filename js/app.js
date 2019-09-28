@@ -85,13 +85,13 @@ async function getWeather(loc) {
 function updateCurrent(conditions, location) {
   let cur = conditions.currently;
   let windDir = 'wi wi-wind ' + windDirection(cur.windBearing);
+  let precip = cur.precipProbability != 0? cur.precipType : 'precipitation';
 
   // Set HTML elements to the data we got from DarkSky
   document.getElementById('location').innerHTML = location.features[0].place_name;
   document.getElementById('current-icon').className = 'wi ' + setIcon(cur.icon);
   document.getElementById('current-temp').innerHTML = Math.round(cur.temperature) + '&deg;F | Feels like: ' + Math.round(cur.apparentTemperature) + '&deg;F';
   document.getElementById('current-clouds').innerHTML = Math.round(cur.cloudCover * 100) + '% cloud cover';
-  let precip = cur.precipProbability != 0? cur.precipType : 'precipitation';
   document.getElementById('current-precip').innerHTML = cur.precipProbability * 100 + '% chance of ' + precip;
   document.getElementById('current-humidity').innerHTML = 'Humidity: ' + Math.round(cur.humidity * 100) + '%';
   document.getElementById('current-wind-speed').innerHTML = 'Wind: ' + Math.round(cur.windSpeed) + 'mph' + '&nbsp;' + '<i id="current-wind-icon" class=""></i>';
@@ -114,10 +114,12 @@ function updateForecast(conditions) {
     } else {
       dayOfWeek = 'Today';
     }
+    let precip = day.precipProbability != 0? day.precipType : 'precipitation';
+
     // Set HTML elements to the data we got from DarkSky
     document.getElementById('day-' + i + '-icon').innerHTML = '<i class="wi ' + setIcon(day.icon) + '"></i>';
     document.getElementById('day-' + i + '-summary').innerHTML = dayOfWeek + ': ' + day.summary;
-    document.getElementById('day-' + i + '-precip').innerHTML = Math.round(day.precipProbability * 100) + '% chance of ' + day.precipType;
+    document.getElementById('day-' + i + '-precip').innerHTML = Math.round(day.precipProbability * 100) + '% chance of ' + precip;
     document.getElementById('day-' + i + '-temps').innerHTML = Math.round(day.temperatureHigh) + '&deg; / ' + Math.round(day.temperatureLow) + '&deg;';
   }
 }

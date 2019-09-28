@@ -13,8 +13,8 @@ if(localStorage.getItem('location') === null) {
 const form = document.querySelector('#location-form');
 const locationInput = document.querySelector('#location-input');
 
-// Insert keys and remove comments
-// const darkSkyKey = '';
+// Insert key and remove comment
+// TODO: Run mapbox request through proxy to avoid exposing api key
 // const mapboxKey = '';
 
 async function getGpsLocation() {
@@ -71,9 +71,8 @@ async function getLocationData(loc) {
 }
 
 async function getWeather(loc) {
-  // Using cors-anywhere for api call for now
-  // TODO: Build a cors-anywhere clone or workaround the cors error
-  let url = 'https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/' + darkSkyKey + '/' + loc.lat + ',' + loc.long;
+  // Using a proxy server on heroku
+  let url = 'https://afternoon-castle-56771.herokuapp.com/api/v1/json?lat=' + loc.lat + '&lon=' + loc.long;
   const response = await fetch(url, {});
   return new Promise(
     (resolve, reject) => {

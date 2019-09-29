@@ -1,5 +1,6 @@
 // Check for a saved location
 let gpsLocation;
+let locationData;
 if(localStorage.getItem('location') === null) {
   // No saved location, set default
   gpsLocation = {
@@ -45,7 +46,7 @@ async function getGpsLocation() {
     }
   );
 }
-let locationData;
+
 async function getLocationData(loc) {
   locationData = loc;
   let url;
@@ -115,21 +116,16 @@ function updateForecast(conditions) {
       dayOfWeek = 'Today';
     }
     let precip = day.precipProbability != 0? day.precipType : 'precipitation';
-
-    console.log(day);
-
     let precipProb = Math.round(day.precipProbability * 100);
     let humidity = Math.round(day.humidity * 100) + '%';
     let wind = 'Wind: &nbsp;&nbsp;' + Math.round(day.windSpeed) + 'mph &nbsp;&nbsp;<i class="wi wi-wind ' + windDirection(day.windBearing) + '"></i>';
     let sunDetails = 'Sunrise <i class="wi wi-sunrise"></i>&nbsp;&nbsp; ' + formatTime(day.sunriseTime) + '&nbsp;&nbsp;|&nbsp;&nbsp;Sunset <i class="wi wi-sunset"></i>&nbsp;&nbsp; ' + formatTime(day.sunsetTime);
-
     // Set HTML elements to the data we got from DarkSky
     // Daily Summary
     document.getElementById('day-' + i + '-icon').innerHTML = '<i class="wi ' + setIcon(day.icon) + '"></i>';
     document.getElementById('day-' + i + '-summary').innerHTML = dayOfWeek + ': ' + day.summary;
     document.getElementById('day-' + i + '-precip').innerHTML = precipProb + '% chance of ' + precip;
     document.getElementById('day-' + i + '-temps').innerHTML = Math.round(day.temperatureHigh) + '&deg; / ' + Math.round(day.temperatureLow) + '&deg;';
-
     // Daily expanded
     // Precipitation
     document.getElementById('day-' + i + '-precip-guage-title').innerHTML = 'Chance of ' + precip + ':';
@@ -245,7 +241,6 @@ function uvIndexColor(i) {
   }
 };
 
-
 function setIcon(cond) {
   switch (cond) {
     case 'clear-day':
@@ -331,7 +326,6 @@ async function userInputLocation(e) {
   searchString = searchString.replace(/[,.]/gi, "");
   // Clear input
   locationInput.value = '';
-
   // Kick off location search
   let loc = await getLocationData(searchString);
 

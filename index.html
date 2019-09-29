@@ -20,28 +20,28 @@
     <div class="nav-wrapper blue-grey darken-2 row">
       <div class="col 1"></div>
       <div class="col s5 left">
-          <a href="#" class="brand-logo left blue-grey-text text-lighten-5">Sunshine Weather</a>
+        <a href="#" class="brand-logo left blue-grey-text text-lighten-5">Sunshine Weather</a>
       </div>
       <div class="col s5 right">
-          <a class="right blue-grey-text text-lighten-5" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+        <a class="right blue-grey-text text-lighten-5" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
       </div>
       <div class="col s1"></div>
     </div>
   </nav>
   <div class="container">
-      <div class="row">
-        <div class="container">
-          <form id="location-form" class="col s12">
-            <div class="row">
-              <div class="input-field col s12 blue-grey-text text-darken-4">
-                <i class="material-icons prefix">edit_location</i>
-                <input id="location-input" type="text" class="validate">
-                <label for="location-input">Zip code or City State</label>
-              </div>
+    <div class="row">
+      <div class="container">
+        <form id="location-form" class="col s12">
+          <div class="row">
+            <div class="input-field col s12 blue-grey-text text-darken-4">
+              <i class="material-icons prefix">edit_location</i>
+              <input id="location-input" type="text" class="validate">
+              <label for="location-input">Zip code or City State</label>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
+    </div>
     <!-- CURRENT CONDITIONS -->
     <div class="row blue-grey-text text-darken-3">
       <div class="col s12 center">
@@ -60,638 +60,652 @@
       <!-- This div is just to provide spacing -->
       <div class="col s12">&nbsp;</div>
       <div id="minutely-summary" class="col s12 center"></div>
-
-    </div>
-    <!-- FORECAST -->
-    <div class="row blue-grey-text text-darken-3">
-      <div class="col s1"></div>
-      <div class="col s10">
-        <ul class="collapsible">
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-0-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-0-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-0-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-0-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-0-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-0-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-0-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-0-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-0-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-0-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-0-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-0-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-0-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-0-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-0-sun-details"></span>
-                  </div>
-                </div>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-1-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-1-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-1-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-1-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-1-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-1-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-1-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-1-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-1-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-1-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-1-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-1-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-1-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-1-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-1-sun-details"></span>
-                  </div>
-                </div>
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-2-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-2-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-2-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-2-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-2-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-2-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-2-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-2-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-2-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-2-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-2-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-2-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-2-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-2-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-2-sun-details"></span>
-                  </div>
-                </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-3-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-3-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-3-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-3-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-3-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-3-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-3-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-3-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-3-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-3-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-3-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-3-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-3-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-3-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-3-sun-details"></span>
-                  </div>
-                </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-4-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-4-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-4-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-4-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-4-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-4-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-4-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-4-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-4-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-4-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-4-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-4-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-4-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-4-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-4-sun-details"></span>
-                  </div>
-                </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-5-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-5-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-5-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-5-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-5-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-5-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-5-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-5-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-5-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-5-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-5-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-5-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-5-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-5-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-5-sun-details"></span>
-                  </div>
-                </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-6-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-6-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-6-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-6-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-6-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-6-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-6-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-6-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-6-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-6-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-6-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-6-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-6-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-6-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-6-sun-details"></span>
-                  </div>
-                </div>
-
-            </div>
-          </li>
-          <li>
-            <div class="collapsible-header hoverable blue-grey lighten-5">
-              <div class="container">
-                <div class="row">
-                  <div class="col s2">
-                    <span class="forecast-icon" id="day-7-icon"></span>
-                  </div>
-                  <div class="col s10">
-                    <div class="row">
-                      <div class="col s12">
-                        <span id="day-7-summary"></span>
-                      </div>
-                      <div class="col s8">
-                        <span id="day-7-precip"></span>
-                      </div>
-                      <div class="col s4">
-                        <span id="day-7-temps"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="collapsible-body blue-grey lighten-4">
-              <!-- Precip Guage -->
-              <div class="row">
-                <div class="col s2">
-                  <span id="day-7-precip-guage-title"></span>
-                </div>
-                <div class="col s8">
-                  <div class="progress blue-grey lighten-3">
-                      <div id="day-7-precip-guage" class="determinate light-blue"></div>
-                  </div>
-                </div>
-                <div class="col s2">
-                  <span id="day-7-precip-guage-detail"></span>
-                </div>
-              </div>
-              <!-- Humidity Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-7-humidity-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-7-humidity-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-7-humidity-guage-detail"></span>
-                  </div>
-                </div>
-              <!-- UV Index Guage -->
-              <div class="row">
-                  <div class="col s2">
-                    <span id="day-7-uv-index-guage-title"></span>
-                  </div>
-                  <div class="col s8">
-                    <div class="progress blue-grey lighten-3">
-                        <div id="day-7-uv-index-guage" class="determinate light-blue"></div>
-                    </div>
-                  </div>
-                  <div class="col s2">
-                    <span id="day-7-uv-index-guage-detail"></span>
-                  </div>
-                </div>
-                <!-- Wind and sun details -->
-                <div class="row">
-                  <div class="col s4">
-                    <span id="day-7-wind-details"></span>
-                  </div>
-                  <div class="col s8 right-align">
-                    <span id="day-7-sun-details"></span>
-                  </div>
-                </div>
-            </div>
-          </li>
-        </ul>
+      <div class="col s12">
+        <div class="col s2 right-align">
+          <span id="current-uv-index-guage-title"></span>
+        </div>
+        <div class="col s8">
+          <div class="progress blue-grey lighten-3">
+            <div id="current-uv-index-guage" class="determinate light-blue"></div>
+          </div>
+        </div>
+        <div class="col s2">
+          <span id="current-uv-index-guage-detail"></span>
+        </div>
       </div>
-      <div class="col s1"></div>
     </div>
+
+  </div>
+  <!-- FORECAST -->
+  <div class="row blue-grey-text text-darken-3">
+    <div class="col s1"></div>
+    <div class="col s10">
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-0-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-0-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-0-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-0-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-0-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-0-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-0-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-0-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-0-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-0-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-0-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-0-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-0-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-0-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-0-sun-details"></span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-1-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-1-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-1-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-1-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-1-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-1-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-1-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-1-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-1-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-1-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-1-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-1-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-1-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-1-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-1-sun-details"></span>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-2-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-2-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-2-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-2-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-2-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-2-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-2-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-2-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-2-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-2-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-2-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-2-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-2-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-2-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-2-sun-details"></span>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-3-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-3-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-3-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-3-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-3-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-3-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-3-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-3-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-3-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-3-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-3-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-3-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-3-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-3-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-3-sun-details"></span>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-4-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-4-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-4-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-4-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-4-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-4-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-4-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-4-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-4-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-4-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-4-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-4-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-4-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-4-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-4-sun-details"></span>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-5-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-5-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-5-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-5-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-5-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-5-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-5-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-5-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-5-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-5-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-5-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-5-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-5-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-5-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-5-sun-details"></span>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-6-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-6-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-6-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-6-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-6-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-6-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-6-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-6-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-6-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-6-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-6-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-6-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-6-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-6-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-6-sun-details"></span>
+              </div>
+            </div>
+
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header hoverable blue-grey lighten-5">
+            <div class="container">
+              <div class="row">
+                <div class="col s2">
+                  <span class="forecast-icon" id="day-7-icon"></span>
+                </div>
+                <div class="col s10">
+                  <div class="row">
+                    <div class="col s12">
+                      <span id="day-7-summary"></span>
+                    </div>
+                    <div class="col s8">
+                      <span id="day-7-precip"></span>
+                    </div>
+                    <div class="col s4">
+                      <span id="day-7-temps"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collapsible-body blue-grey lighten-4">
+            <!-- Precip Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-7-precip-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-7-precip-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-7-precip-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Humidity Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-7-humidity-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-7-humidity-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-7-humidity-guage-detail"></span>
+              </div>
+            </div>
+            <!-- UV Index Guage -->
+            <div class="row">
+              <div class="col s2">
+                <span id="day-7-uv-index-guage-title"></span>
+              </div>
+              <div class="col s8">
+                <div class="progress blue-grey lighten-3">
+                  <div id="day-7-uv-index-guage" class="determinate light-blue"></div>
+                </div>
+              </div>
+              <div class="col s2">
+                <span id="day-7-uv-index-guage-detail"></span>
+              </div>
+            </div>
+            <!-- Wind and sun details -->
+            <div class="row">
+              <div class="col s4">
+                <span id="day-7-wind-details"></span>
+              </div>
+              <div class="col s8 right-align">
+                <span id="day-7-sun-details"></span>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col s1"></div>
+  </div>
   </div>
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -699,4 +713,5 @@
   <script src="../apiKeys.js"></script>
   <script src="./js/app.js"></script>
 </body>
+
 </html>

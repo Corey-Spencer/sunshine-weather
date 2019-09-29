@@ -1,7 +1,7 @@
 // Check for a saved location
 let gpsLocation;
 let locationData;
-if(localStorage.getItem('location') === null) {
+if (localStorage.getItem('location') === null) {
   // No saved location, set default
   gpsLocation = {
     lat: 35.705847,
@@ -36,8 +36,12 @@ async function getGpsLocation() {
             resolve(gpsLocation);
           },
           // options
-          {enableHighAccuracy: true, timeout: 5000, maximumAge: 10000}
-          );
+          {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 10000
+          }
+        );
       } else {
         // location is not available
         console.log('Location not available');
@@ -57,7 +61,7 @@ async function getLocationData(loc) {
   } else {
     return false;
   }
-  
+
   const response = await fetch(url, {});
   return new Promise(
     (resolve, reject) => {
@@ -67,7 +71,7 @@ async function getLocationData(loc) {
       } else {
         reject(reason);
       }
-    }    
+    }
   )
 }
 
@@ -86,7 +90,7 @@ async function getWeather(loc) {
 function updateCurrent(conditions, location) {
   let cur = conditions.currently;
   let windDir = 'wi wi-wind ' + windDirection(cur.windBearing);
-  let precip = cur.precipProbability != 0? cur.precipType : 'precipitation';
+  let precip = cur.precipProbability != 0 ? cur.precipType : 'precipitation';
 
   // Set HTML elements to the data we got from DarkSky
   document.getElementById('location').innerHTML = location.features[0].place_name;
@@ -96,8 +100,14 @@ function updateCurrent(conditions, location) {
   document.getElementById('current-precip').innerHTML = cur.precipProbability * 100 + '% chance of ' + precip;
   document.getElementById('current-humidity').innerHTML = 'Humidity: ' + Math.round(cur.humidity * 100) + '%';
   document.getElementById('current-wind-speed').innerHTML = 'Wind: ' + Math.round(cur.windSpeed) + 'mph' + '&nbsp;' + '<i id="current-wind-icon" class=""></i>';
-  document.getElementById('current-wind-icon').className = windDir; 
+  document.getElementById('current-wind-icon').className = windDir;
   document.getElementById('minutely-summary').innerHTML = conditions.minutely.summary;
+  // UV Index 
+  document.getElementById('current-uv-index-guage-title').innerHTML = 'UV Index:';
+  document.getElementById('current-uv-index-guage').style.width = uvIndexPercent(cur.uvIndex) + '%';
+  document.getElementById('current-uv-index-guage').className = 'determinate ' + uvIndexColor(cur.uvIndex);
+  document.getElementById('current-uv-index-guage-detail').innerHTML = cur.uvIndex;
+
 }
 
 function updateForecast(conditions) {
@@ -115,7 +125,7 @@ function updateForecast(conditions) {
     } else {
       dayOfWeek = 'Today';
     }
-    let precip = day.precipProbability != 0? day.precipType : 'precipitation';
+    let precip = day.precipProbability != 0 ? day.precipType : 'precipitation';
     let precipProb = Math.round(day.precipProbability * 100);
     let humidity = Math.round(day.humidity * 100) + '%';
     let wind = 'Wind: &nbsp;&nbsp;' + Math.round(day.windSpeed) + 'mph &nbsp;&nbsp;<i class="wi wi-wind ' + windDirection(day.windBearing) + '"></i>';
@@ -149,7 +159,11 @@ function updateForecast(conditions) {
 
 function formatTime(time) {
   let date = new Date(time * 1000);
-  return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+  return date.toLocaleString('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true
+  });
 }
 
 function getDayOfWeek(day) {
@@ -223,7 +237,7 @@ function uvIndexPercent(i) {
   if (i >= 11) {
     return 100;
   } else {
-    return Math.round(i/11 * 100);
+    return Math.round(i / 11 * 100);
   }
 }
 
@@ -314,7 +328,7 @@ async function getData(locData, coords) {
 };
 
 async function userInputLocation(e) {
-  if(locationInput.value === '') {
+  if (locationInput.value === '') {
     alert('Add a task');
   }
   e.preventDefault();

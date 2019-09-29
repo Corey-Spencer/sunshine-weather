@@ -129,7 +129,7 @@ function updateForecast(conditions) {
     let precipProb = Math.round(day.precipProbability * 100);
     let humidity = Math.round(day.humidity * 100) + '%';
     let wind = 'Wind: &nbsp;&nbsp;' + Math.round(day.windSpeed) + 'mph &nbsp;&nbsp;<i class="wi wi-wind ' + windDirection(day.windBearing) + '"></i>';
-    let sunDetails = 'Sunrise <i class="wi wi-sunrise"></i>&nbsp;&nbsp; ' + formatTime(day.sunriseTime) + '&nbsp;&nbsp;|&nbsp;&nbsp;Sunset <i class="wi wi-sunset"></i>&nbsp;&nbsp; ' + formatTime(day.sunsetTime);
+    let sunDetails = '<i class="wi wi-sunrise"></i>&nbsp;' + formatTime(day.sunriseTime) + ' | <i class="wi wi-sunset"></i>&nbsp;' + formatTime(day.sunsetTime);
     // Set HTML elements to the data we got from DarkSky
     // Daily Summary
     document.getElementById('day-' + i + '-icon').innerHTML = '<i class="wi ' + setIcon(day.icon) + '"></i>';

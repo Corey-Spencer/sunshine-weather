@@ -96,8 +96,8 @@ function updateCurrent(conditions, location) {
   document.getElementById('location').innerHTML = location.features[0].place_name;
   document.getElementById('current-icon').className = 'wi ' + setIcon(cur.icon);
   document.getElementById('current-temp').innerHTML = Math.round(cur.temperature) + '&deg;F | Feels like: ' + Math.round(cur.apparentTemperature) + '&deg;F';
-  document.getElementById('current-clouds').innerHTML = Math.round(cur.cloudCover * 100) + '% cloud cover';
-  document.getElementById('current-precip').innerHTML = cur.precipProbability * 100 + '% chance of ' + precip;
+  document.getElementById('current-clouds').innerHTML = 'Cloud cover: ' + Math.round(cur.cloudCover * 100) + '%';
+  document.getElementById('current-precip').innerHTML = 'Chance of ' + precip + ': ' + cur.precipProbability * 100 + '%';
   document.getElementById('current-humidity').innerHTML = 'Humidity: ' + Math.round(cur.humidity * 100) + '%';
   document.getElementById('current-wind-speed').innerHTML = 'Wind: ' + Math.round(cur.windSpeed) + 'mph' + '&nbsp;' + '<i id="current-wind-icon" class=""></i>';
   document.getElementById('current-wind-icon').className = windDir;

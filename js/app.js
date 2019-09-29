@@ -116,12 +116,44 @@ function updateForecast(conditions) {
     }
     let precip = day.precipProbability != 0? day.precipType : 'precipitation';
 
+    console.log(day);
+
+    let precipProb = Math.round(day.precipProbability * 100);
+    let humidity = Math.round(day.humidity * 100) + '%';
+    let wind = 'Wind: &nbsp;&nbsp;' + Math.round(day.windSpeed) + 'mph &nbsp;&nbsp;<i class="wi wi-wind ' + windDirection(day.windBearing) + '"></i>';
+    let sunDetails = 'Sunrise <i class="wi wi-sunrise"></i>&nbsp;&nbsp; ' + formatTime(day.sunriseTime) + '&nbsp;&nbsp;|&nbsp;&nbsp;Sunset <i class="wi wi-sunset"></i>&nbsp;&nbsp; ' + formatTime(day.sunsetTime);
+
     // Set HTML elements to the data we got from DarkSky
+    // Daily Summary
     document.getElementById('day-' + i + '-icon').innerHTML = '<i class="wi ' + setIcon(day.icon) + '"></i>';
     document.getElementById('day-' + i + '-summary').innerHTML = dayOfWeek + ': ' + day.summary;
-    document.getElementById('day-' + i + '-precip').innerHTML = Math.round(day.precipProbability * 100) + '% chance of ' + precip;
+    document.getElementById('day-' + i + '-precip').innerHTML = precipProb + '% chance of ' + precip;
     document.getElementById('day-' + i + '-temps').innerHTML = Math.round(day.temperatureHigh) + '&deg; / ' + Math.round(day.temperatureLow) + '&deg;';
+
+    // Daily expanded
+    // Precipitation
+    document.getElementById('day-' + i + '-precip-guage-title').innerHTML = 'Chance of ' + precip + ':';
+    document.getElementById('day-' + i + '-precip-guage').style.width = precipProb + '%';
+    document.getElementById('day-' + i + '-precip-guage-detail').innerHTML = precipProb + '%';
+    // Humidity
+    document.getElementById('day-' + i + '-humidity-guage-title').innerHTML = 'Humidity:';
+    document.getElementById('day-' + i + '-humidity-guage').style.width = Math.round(day.humidity * 100) + '%';
+    document.getElementById('day-' + i + '-humidity-guage-detail').innerHTML = humidity;
+    // UV Index
+    document.getElementById('day-' + i + '-uv-index-guage-title').innerHTML = 'UV Index:';
+    document.getElementById('day-' + i + '-uv-index-guage').style.width = uvIndexPercent(day.uvIndex) + '%';
+    document.getElementById('day-' + i + '-uv-index-guage').className = 'determinate ' + uvIndexColor(day.uvIndex);
+    document.getElementById('day-' + i + '-uv-index-guage-detail').innerHTML = day.uvIndex;
+    // Wind
+    document.getElementById('day-' + i + '-wind-details').innerHTML = wind;
+    // Sun
+    document.getElementById('day-' + i + '-sun-details').innerHTML = sunDetails;
   }
+}
+
+function formatTime(time) {
+  let date = new Date(time * 1000);
+  return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 }
 
 function getDayOfWeek(day) {
@@ -190,6 +222,29 @@ function windDirection(deg) {
     return 'wi-na'
   }
 }
+
+function uvIndexPercent(i) {
+  if (i >= 11) {
+    return 100;
+  } else {
+    return Math.round(i/11 * 100);
+  }
+}
+
+function uvIndexColor(i) {
+  if (i < 3) {
+    return 'green accent-4';
+  } else if (i < 6) {
+    return 'yellow accent-4';
+  } else if (i < 8) {
+    return 'orange accent-4';
+  } else if (i < 11) {
+    return 'red darken-2';
+  } else {
+    return 'deep-purple';
+  }
+};
+
 
 function setIcon(cond) {
   switch (cond) {

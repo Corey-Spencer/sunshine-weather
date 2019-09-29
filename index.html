@@ -15,15 +15,15 @@
   <link rel="stylesheet" href="./css/main.css">
 </head>
 
-<body class="grey lighten-2">
+<body class="blue-grey lighten-4">
   <nav>
-    <div class="nav-wrapper blue-grey row">
+    <div class="nav-wrapper blue-grey darken-2 row">
       <div class="col 1"></div>
       <div class="col s5 left">
-          <a href="#" class="brand-logo left">Sunshine Weather</a>
+          <a href="#" class="brand-logo left blue-grey-text text-lighten-5">Sunshine Weather</a>
       </div>
       <div class="col s5 right">
-          <a class="right" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
+          <a class="right blue-grey-text text-lighten-5" href="https://darksky.net/poweredby/">Powered by Dark Sky</a>
       </div>
       <div class="col s1"></div>
     </div>
@@ -33,7 +33,7 @@
         <div class="container">
           <form id="location-form" class="col s12">
             <div class="row">
-              <div class="input-field col s12">
+              <div class="input-field col s12 blue-grey-text text-darken-4">
                 <i class="material-icons prefix">edit_location</i>
                 <input id="location-input" type="text" class="validate">
                 <label for="location-input">Zip code or City State</label>
@@ -63,12 +63,12 @@
 
     </div>
     <!-- FORECAST -->
-    <div class="row">
+    <div class="row blue-grey-text text-darken-3">
       <div class="col s1"></div>
       <div class="col s10">
         <ul class="collapsible">
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -90,18 +90,62 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-0-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-0-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-0-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-0-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-0-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-0-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-0-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-0-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-0-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-0-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-0-sun-details"></span>
+                  </div>
+                </div>
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -123,18 +167,62 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-1-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-1-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-1-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-1-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-1-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-1-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-1-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-1-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-1-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-1-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-1-sun-details"></span>
+                  </div>
+                </div>
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -156,18 +244,63 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-2-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-2-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-2-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-2-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-2-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-2-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-2-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-2-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-2-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-2-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-2-sun-details"></span>
+                  </div>
+                </div>
+
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -189,18 +322,63 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-3-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-3-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-3-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-3-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-3-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-3-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-3-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-3-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-3-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-3-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-3-sun-details"></span>
+                  </div>
+                </div>
+
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -222,18 +400,63 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-4-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-4-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-4-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-4-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-4-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-4-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-4-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-4-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-4-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-4-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-4-sun-details"></span>
+                  </div>
+                </div>
+
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -255,18 +478,63 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-5-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-5-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-5-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-5-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-5-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-5-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-5-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-5-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-5-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-5-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-5-sun-details"></span>
+                  </div>
+                </div>
+
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -288,18 +556,63 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-              <!-- TODO: Build the forecast and fill the data -->
-              Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-6-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-6-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-6-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-6-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-6-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-6-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-6-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-6-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-6-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-6-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-6-sun-details"></span>
+                  </div>
+                </div>
+
             </div>
           </li>
           <li>
-            <div class="collapsible-header hoverable">
+            <div class="collapsible-header hoverable blue-grey lighten-5">
               <div class="container">
                 <div class="row">
                   <div class="col s2">
@@ -321,14 +634,58 @@
                 </div>
               </div>
             </div>
-            <div class="collapsible-body grey lighten-3">
-               <!-- TODO: Build the forecast and fill the data -->
-               Sunrise
-              sunset
-              precip probability type at time
-              humidity
-              wind speed
-              wind direction
+            <div class="collapsible-body blue-grey lighten-4">
+              <!-- Precip Guage -->
+              <div class="row">
+                <div class="col s2">
+                  <span id="day-7-precip-guage-title"></span>
+                </div>
+                <div class="col s8">
+                  <div class="progress blue-grey lighten-3">
+                      <div id="day-7-precip-guage" class="determinate light-blue"></div>
+                  </div>
+                </div>
+                <div class="col s2">
+                  <span id="day-7-precip-guage-detail"></span>
+                </div>
+              </div>
+              <!-- Humidity Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-7-humidity-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-7-humidity-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-7-humidity-guage-detail"></span>
+                  </div>
+                </div>
+              <!-- UV Index Guage -->
+              <div class="row">
+                  <div class="col s2">
+                    <span id="day-7-uv-index-guage-title"></span>
+                  </div>
+                  <div class="col s8">
+                    <div class="progress blue-grey lighten-3">
+                        <div id="day-7-uv-index-guage" class="determinate light-blue"></div>
+                    </div>
+                  </div>
+                  <div class="col s2">
+                    <span id="day-7-uv-index-guage-detail"></span>
+                  </div>
+                </div>
+                <!-- Wind and sun details -->
+                <div class="row">
+                  <div class="col s4">
+                    <span id="day-7-wind-details"></span>
+                  </div>
+                  <div class="col s8 right-align">
+                    <span id="day-7-sun-details"></span>
+                  </div>
+                </div>
             </div>
           </li>
         </ul>

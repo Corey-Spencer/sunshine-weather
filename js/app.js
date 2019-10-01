@@ -87,10 +87,14 @@ async function getWeather(loc) {
   )
 }
 
+function precipType(type) {
+  return type ? type : 'precipitation';
+}
+
 function updateCurrent(conditions, location) {
   let cur = conditions.currently;
   let windDir = 'wi wi-wind ' + windDirection(cur.windBearing);
-  let precip = cur.precipProbability != 0 ? cur.precipType : 'precipitation';
+  let precip = precipType(cur.precipType);
 
   // Set HTML elements to the data we got from DarkSky
   document.getElementById('location').innerHTML = location.features[0].place_name;
@@ -125,7 +129,7 @@ function updateForecast(conditions) {
     } else {
       dayOfWeek = 'Today';
     }
-    let precip = day.precipProbability != 0 ? day.precipType : 'precipitation';
+    let precip = precipType(day.precipType);
     let precipProb = Math.round(day.precipProbability * 100);
     let humidity = Math.round(day.humidity * 100) + '%';
     let wind = 'Wind: &nbsp;&nbsp;' + Math.round(day.windSpeed) + 'mph &nbsp;&nbsp;<i class="wi wi-wind ' + windDirection(day.windBearing) + '"></i>';
